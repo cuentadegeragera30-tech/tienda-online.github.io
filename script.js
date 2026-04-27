@@ -1,3 +1,21 @@
+function makeProductImage(title, toneA, toneB) {
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${toneA}"/>
+          <stop offset="100%" stop-color="${toneB}"/>
+        </linearGradient>
+      </defs>
+      <rect width="800" height="600" fill="url(#g)"/>
+      <circle cx="650" cy="120" r="90" fill="rgba(255,255,255,0.18)"/>
+      <circle cx="120" cy="520" r="120" fill="rgba(255,255,255,0.13)"/>
+      <text x="48" y="525" fill="rgba(255,255,255,0.92)" font-family="Arial, sans-serif" font-size="46" font-weight="700">${title}</text>
+    </svg>
+  `;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 const products = [
   {
     id: 1,
@@ -7,7 +25,7 @@ const products = [
     rating: 4.8,
     featured: true,
     badge: "Top Venta",
-    image: "https://images.unsplash.com/photo-1545127398-14699f92334b?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Pulse X", "#0f766e", "#134e4a")
   },
   {
     id: 2,
@@ -17,7 +35,7 @@ const products = [
     rating: 4.6,
     featured: true,
     badge: "Nuevo",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Core S", "#1d4ed8", "#0891b2")
   },
   {
     id: 3,
@@ -27,7 +45,7 @@ const products = [
     rating: 4.7,
     featured: false,
     badge: "Premium",
-    image: "https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Urban Pro", "#6d28d9", "#db2777")
   },
   {
     id: 4,
@@ -37,7 +55,7 @@ const products = [
     rating: 4.9,
     featured: true,
     badge: "Editor Choice",
-    image: "https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Flow TKL", "#0f766e", "#f59e0b")
   },
   {
     id: 5,
@@ -47,7 +65,7 @@ const products = [
     rating: 4.5,
     featured: false,
     badge: "Oferta",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Orbit Desk", "#ca8a04", "#b45309")
   },
   {
     id: 6,
@@ -57,7 +75,7 @@ const products = [
     rating: 4.4,
     featured: false,
     badge: "Home Office",
-    image: "https://images.unsplash.com/photo-1587614382346-acd6c4d0f0f8?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Vision 2K", "#0e7490", "#334155")
   },
   {
     id: 7,
@@ -67,7 +85,7 @@ const products = [
     rating: 4.3,
     featured: false,
     badge: "Compacta",
-    image: "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Sonic Mini", "#2563eb", "#9333ea")
   },
   {
     id: 8,
@@ -77,7 +95,7 @@ const products = [
     rating: 4.1,
     featured: false,
     badge: "Lifestyle",
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=1200&q=80"
+    image: makeProductImage("Smart Flask", "#15803d", "#0f766e")
   }
 ];
 
