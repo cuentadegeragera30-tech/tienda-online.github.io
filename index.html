@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Market Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient"></div>
+
+  <header class="topbar">
+    <div class="brand-wrap">
+      <span class="brand-dot"></span>
+      <div>
+        <p class="brand-eyebrow">Store Experience</p>
+        <h1>Nova Market</h1>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="#catalogo">Catalogo</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <button id="open-cart" class="cart-pill" type="button" aria-label="Abrir carrito">
+      <span>Carrito demo</span>
+      <strong id="cart-count">0</strong>
+    </button>
+  </header>
+
+  <main class="page">
+    <section class="hero-block">
+      <div class="hero-copy">
+        <p class="kicker">Plataforma de venta simulada</p>
+        <h2>Pagina moderna y profesional para presentar productos sin cobro real</h2>
+        <p>Incluye filtros, favoritos, carrito dinamico y proceso de checkout de practica. No hay pasarela de pago ni compras reales.</p>
+        <div class="hero-actions">
+          <a class="btn-solid" href="#catalogo">Explorar productos</a>
+          <button id="simulate-checkout" class="btn-ghost" type="button">Probar checkout</button>
+        </div>
+      </div>
+      <aside class="hero-metrics">
+        <h3>Resumen rapido</h3>
+        <div class="metric-row">
+          <span>Productos activos</span>
+          <strong id="products-visible">0</strong>
+        </div>
+        <div class="metric-row">
+          <span>Favoritos</span>
+          <strong id="favorites-count">0</strong>
+        </div>
+        <div class="metric-row">
+          <span>Total demo</span>
+          <strong id="summary-total">$0.00</strong>
+        </div>
+        <p class="metric-note">Modo demostracion: cada accion se queda en tu navegador.</p>
+      </aside>
+    </section>
+
+    <section class="catalog-block" id="catalogo">
+      <div class="section-head">
+        <p class="kicker">Catalogo inteligente</p>
+        <h3>Busca, filtra y ordena</h3>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box" for="search-input">
+          <span>Buscar</span>
+          <input id="search-input" type="search" placeholder="Ejemplo: audifonos, mochila, teclado">
+        </label>
+        <div id="category-filters" class="chip-group" aria-label="Categorias"></div>
+        <label class="sort-box" for="sort-select">
+          <span>Ordenar</span>
+          <select id="sort-select">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="rating-desc">Mejor calificacion</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section class="service-block" id="servicios">
+      <article>
+        <h4>Envio simulado 24h</h4>
+        <p>Flujo visual para ver tiempos y estados sin conexion a mensajeria real.</p>
+      </article>
+      <article>
+        <h4>Atencion pro</h4>
+        <p>Bloque de soporte y experiencia premium con estructura lista para escalar.</p>
+      </article>
+      <article>
+        <h4>Cupones de prueba</h4>
+        <p>Reglas de descuento para testing: usa <strong>NOVA10</strong> en el carrito.</p>
+      </article>
+    </section>
+
+    <section class="faq-block" id="faq">
+      <div class="section-head">
+        <p class="kicker">FAQ</p>
+        <h3>Preguntas frecuentes</h3>
+      </div>
+      <details>
+        <summary>Esta pagina permite comprar de verdad?</summary>
+        <p>No. Esta version es solo una simulacion para practicar interfaz y logica de carrito.</p>
+      </details>
+      <details>
+        <summary>Se pueden conectar pagos despues?</summary>
+        <p>Si. La estructura ya deja listo el front para integrar backend y pasarela en otra etapa.</p>
+      </details>
+      <details>
+        <summary>Guarda informacion del usuario?</summary>
+        <p>Solo usa almacenamiento local del navegador para mantener estado temporal.</p>
+      </details>
+    </section>
+  </main>
+
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Carrito">
+    <div class="cart-header">
+      <h3>Carrito demo</h3>
+      <button id="close-cart" class="icon-btn" type="button" aria-label="Cerrar carrito">x</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="empty-state">No hay productos agregados aun.</p>
+    </div>
+
+    <div class="coupon-wrap">
+      <input id="coupon-input" type="text" placeholder="Codigo de prueba (NOVA10)">
+      <button id="apply-coupon" type="button">Aplicar</button>
+    </div>
+
+    <div class="totals">
+      <p><span>Subtotal</span><strong id="subtotal-amount">$0.00</strong></p>
+      <p><span>Descuento</span><strong id="discount-amount">$0.00</strong></p>
+      <p class="grand-total"><span>Total</span><strong id="total-amount">$0.00</strong></p>
+    </div>
+
+    <button id="checkout-btn" class="btn-solid full" type="button">Finalizar pedido demo</button>
+    <p class="legal-note">No se procesan pagos reales ni datos bancarios.</p>
+  </aside>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
